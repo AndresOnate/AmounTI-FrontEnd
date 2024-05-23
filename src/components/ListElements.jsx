@@ -47,11 +47,11 @@ function ListElements() {
   };
 
   return (
-    <div>
+    <div className="list-elements-container">
       {/* Sección Longitudinal */}
-      <h2>Longitudinal</h2>
+      <h2 className="section-title">Longitudinal</h2>
       {longitudinalItems.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="input-row">
           <input
             type="number"
             placeholder="Cantidad"
@@ -59,6 +59,7 @@ function ListElements() {
             onChange={(e) =>
               handleLongitudinalChange(index, 'cantidad', e.target.value)
             }
+            className="input-field"
           />
           <input
             type="text"
@@ -67,6 +68,7 @@ function ListElements() {
             onChange={(e) =>
               handleLongitudinalChange(index, 'calibre', e.target.value)
             }
+            className="input-field"
           />
           <input
             type="number"
@@ -75,6 +77,7 @@ function ListElements() {
             onChange={(e) =>
               handleLongitudinalChange(index, 'longitud', e.target.value)
             }
+            className="input-field"
           />
           <input
             type="text"
@@ -83,16 +86,24 @@ function ListElements() {
             onChange={(e) =>
               handleLongitudinalChange(index, 'tipo', e.target.value)
             }
+            className="input-field"
           />
-          <button onClick={() => removeLongitudinalItem(index)}>Eliminar</button>
+          <button
+            onClick={() => removeLongitudinalItem(index)}
+            className="remove-button"
+          >
+            Eliminar
+          </button>
         </div>
       ))}
-      <button onClick={addLongitudinalItem}>Añadir Longitudinal</button>
+      <button onClick={addLongitudinalItem} className="add-button">
+        Añadir Longitudinal
+      </button>
 
       {/* Sección Fleje */}
-      <h2>Fleje</h2>
+      <h2 className="section-title">Fleje</h2>
       {flejeItems.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="input-row">
           <input
             type="number"
             placeholder="Cantidad"
@@ -100,6 +111,7 @@ function ListElements() {
             onChange={(e) =>
               handleFlejeChange(index, 'cantidad', e.target.value)
             }
+            className="input-field"
           />
           <input
             type="text"
@@ -108,6 +120,7 @@ function ListElements() {
             onChange={(e) =>
               handleFlejeChange(index, 'calibre', e.target.value)
             }
+            className="input-field"
           />
           <input
             type="number"
@@ -116,6 +129,7 @@ function ListElements() {
             onChange={(e) =>
               handleFlejeChange(index, 'longitud', e.target.value)
             }
+            className="input-field"
           />
           <input
             type="number"
@@ -124,13 +138,21 @@ function ListElements() {
             onChange={(e) =>
               handleFlejeChange(index, 'ancho', e.target.value)
             }
+            className="input-field"
           />
-          <button onClick={() => removeFlejeItem(index)}>Eliminar</button>
+          <button
+            onClick={() => removeFlejeItem(index)}
+            className="remove-button"
+          >
+            Eliminar
+          </button>
         </div>
       ))}
-      <button onClick={addFlejeItem}>Añadir Fleje</button>
+      <button onClick={addFlejeItem} className="add-button">
+        Añadir Fleje
+      </button>
     </div>
   );
-};
+}
 
 export default ListElements;

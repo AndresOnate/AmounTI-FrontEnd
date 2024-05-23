@@ -1,48 +1,66 @@
-.container {
+/* Estilo general para el contenedor principal */
+.list-elements-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  /* Estilo para los títulos de sección */
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  
+  /* Estilo para las filas de los elementos */
+  .input-row {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-  }
-  
-  input {
-    margin: 5px;
-    padding: 5px;
-  }
-  
-  button {
-    margin: 5px;
-    padding: 5px;
-    cursor: pointer;
-  }
-  
-  h2 {
-    margin-top: 30px;
-  }
-  
-  .section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-  }
-  
-  .items-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    width: 75%;
   }
   
+  /* Estilo para los campos de entrada */
+  .input-field {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    flex: 1;
+  }
+  
+  .input-field[type="number"] {
+    max-width: 100px;
+  }
+  
+  /* Estilo para los botones */
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Botón de eliminar */
   .remove-button {
-    align-self: center;
-    margin-left: 10px;
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .remove-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Botón de añadir */
+  .add-button {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  .add-button:hover {
+    background-color: #218838;
   }
