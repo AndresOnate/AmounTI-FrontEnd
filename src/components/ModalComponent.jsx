@@ -17,7 +17,7 @@ const ModalComponent = (props) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify(value)
+        body: value
       });
 
       if (response.ok) {

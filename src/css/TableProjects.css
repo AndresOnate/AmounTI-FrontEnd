@@ -1,0 +1,65 @@
+.table-component {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-component th,
+  .table-component td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table-component th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .table-component tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+  
+  .table-component td:last-child {
+    text-align: center;
+  }
+  
+  .table-component th:last-child,
+  .table-component td:last-child {
+    width: 150px;
+  }
+  
+  .table-component th:nth-child(2),
+  .table-component td:nth-child(2) {
+    width: 100px;
+  }
+  
+  .table-component th:nth-child(3),
+  .table-component td:nth-child(3) {
+    width: 80px;
+  }
+  
+  .table-component th:nth-child(4),
+  .table-component td:nth-child(4) {
+    width: 80px;
+  }
+  
+  .table-component th:nth-child(5),
+  .table-component td:nth-child(5) {
+    width: 100px;
+  }
+  
+  .table-component th:nth-child(6),
+  .table-component td:nth-child(6) {
+    width: 150px;
+  }
+  
+  .table-component th:nth-child(7),
+  .table-component td:nth-child(7) {
+    width: 100px;
+  }
+  
+  .table-component th:nth-child(8),
+  .table-component td:nth-child(8) {
+    width: 100px;
+  }

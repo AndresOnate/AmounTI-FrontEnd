@@ -1,0 +1,31 @@
+.project-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.project-options h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000;
+}
+
+.project-options button {
+    width: 200px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.project-options button:hover {
+    background-color: #0056b3;
+}

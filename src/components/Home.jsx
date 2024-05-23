@@ -4,12 +4,16 @@ import ModalComponent from '../components/ModalComponent';
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AmounTIContext } from "../AmounTIContext";
+import { jwtDecode } from 'jwt-decode'
+import { TabPane } from 'reactstrap';
 
 
 const Home = () => {
     
-    const { token, login, logout } = useContext(AmounTIContext);
+    const { login, logout } = useContext(AmounTIContext);
     const navigate = useNavigate();
+    const token  = localStorage.getItem('token');
+    console.log(token);
 
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -34,6 +38,14 @@ const Home = () => {
         console.log(`Proyecto creado con el nombre "${value}"`);
 
     };
+
+    const handleShowTable = async (value) => {
+        navigate('/tableprojects');
+
+    };
+
+
+
     return (
         <div className="container">
         <div className="row justify-content-center">
@@ -51,7 +63,7 @@ const Home = () => {
                     toggle={handleModalToggle}
                     onConfirm={handleConfirm}
                 />
-                <button className="btn btn-primary btn-block">
+                <button className="btn btn-primary btn-block" onClick={handleShowTable}>
                     Ver Proyectos
                 </button>
                 </div>

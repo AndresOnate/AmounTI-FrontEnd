@@ -5,6 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Auth from "./components/Auth"
 import { AmounTIContext } from './AmounTIContext'
 import Home from './components/Home'
+import TableProjects from './components/TableProjects'
+import ProjectOptions from './components/ProjectOptions'
+import ListElements from './components/ListElements'
 
 function App() {
   const [token, setToken] = useState(null);
@@ -20,6 +23,9 @@ function App() {
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/tableprojects" element={<TableProjects />} />
+          <Route path="/projectoptions" element={<ProjectOptions />} />
+          <Route path="/listelements" element={<ListElements />} />
         </Routes>
       </BrowserRouter>
     </AmounTIContext.Provider>
