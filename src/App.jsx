@@ -8,6 +8,9 @@ import Home from './components/Home'
 import TableProjects from './components/TableProjects'
 import ProjectOptions from './components/ProjectOptions'
 import ListElements from './components/ListElements'
+import ListItems from './components/ListItems'
+import ViewElements from './components/ViewElements'
+import ViewItems from './components/ViewItems'
 
 function App() {
   const [token, setToken] = useState(null);
@@ -26,6 +29,9 @@ function App() {
           <Route path="/tableprojects" element={<TableProjects />} />
           <Route path="/projectoptions" element={<ProjectOptions />} />
           <Route path="/listelements" element={<ListElements />} />
+          <Route path="/listitems" element={<ListItems />} />
+          <Route path="/viewelements" element={<ViewElements />} />
+          <Route path="/viewitems" element={<ViewItems />} />
         </Routes>
       </BrowserRouter>
     </AmounTIContext.Provider>

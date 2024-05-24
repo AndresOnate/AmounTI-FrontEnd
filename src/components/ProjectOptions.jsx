@@ -13,15 +13,15 @@ const ProjectOptions = ({ }) => {
     };
 
     const handleViewElements = () => {
-        navigate('/listelements',  { state: { project } });
+        navigate('/viewelements',  { state: { project } });
     };
 
     const handleListItems = () => {
-        navigate('/listelements',  { state: { project } });
+        navigate('/listitems',  { state: { project } });
     };
 
     const handleViewItems = () => {
-        navigate('/listelements',  { state: { project } });
+        navigate('/viewitems',  { state: { project } });
     };
 
     const handlePrintResults = () => {

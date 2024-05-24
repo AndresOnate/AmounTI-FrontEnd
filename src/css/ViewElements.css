@@ -1,0 +1,29 @@
+/* Estilos para el contenedor de la tabla */
+.element-table-container {
+    margin-top: 20px;
+}
+ 
+/* Estilos para la tabla */
+.element-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+ 
+/* Estilos para las celdas de la tabla */
+.element-table th,
+.element-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+ 
+/* Estilos para las filas impares */
+.element-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+ 
+/* Estilos para el encabezado de la tabla */
+.element-table th {
+    background-color: #4CAF50;
+    color: white;
+}

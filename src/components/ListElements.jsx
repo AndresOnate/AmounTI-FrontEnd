@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../css/ListElements.css';
+import { jwtDecode } from 'jwt-decode'
 
 function ListElements() {
+    const token = localStorage.getItem('token');
     const location = useLocation();
     const { project } = location.state || {};
     const [longitudinalItems, setLongitudinalItems] = useState([]);
     const [flejeItems, setFlejeItems] = useState([]);
+    const [nameElement, setNameElement] = useState("");
 
     const handleLongitudinalChange = (index, field, value) => {
         const updatedItems = [...longitudinalItems];
@@ -46,12 +49,39 @@ function ListElements() {
         setFlejeItems(updatedItems);
     };
 
-    const handleAddElements = (index) => {
+    const handleAddElements = async (index) => {
+        try {
+            const decodedToken = jwtDecode(token);
+            const userId = decodedToken.sub;
+            const nameProject = project.nombre;
+            const response = await fetch(`http://localhost:8080/v1/projects/${userId}/${nameProject}/elements`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: nameElement
+            });
 
-    }
+            if (response.ok) {        
+                const data = await response.json();        
+                console.log(data);        
+            }
+        } catch (error) {
+            // Handle network or other errors
+            console.error('Error fetching projects', error);
+        }
+     };
 
     return (
-        <div className="list-elements-container">
+        <div className="list-elements-container">             
+            <h2 className="section-title">Nombre del Elemento</h2>            
+            <input 
+                type="text" 
+                className="input-field" 
+                value={nameElement}
+                onChange={(e) => setNameElement(e.target.value)}
+            />            
             {/* Sección Longitudinal */}
             <h2 className="section-title">Longitudinal</h2>
             {longitudinalItems.map((item, index) => (
@@ -164,7 +194,7 @@ function ListElements() {
                     className="add-1-button"
                     onClick={handleAddElements}
                 >
-                    Añadir elementos
+                    Añadir Elemento
                 </button>
             </div>
 

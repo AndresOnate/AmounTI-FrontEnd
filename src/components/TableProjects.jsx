@@ -87,7 +87,7 @@ const TableProjects = () => {
                                 ))}
                             </ul>
                         </td>
-                        <td>{project.items}</td>
+                        <td>{JSON.stringify(project.items)}</td>
                         <td>{JSON.stringify(project.itemsCantidades)}</td>
                         <td>{JSON.stringify(project.pesoUnitarioItem)}</td>
                         <td>{JSON.stringify(project.pesoTotalItem)}</td>
