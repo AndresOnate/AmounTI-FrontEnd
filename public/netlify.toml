@@ -1,0 +1,9 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/api/*"
+  to = "http://ec2-3-81-217-64.compute-1.amazonaws.com:35000/v1/:splat"
+  status = 200
+  force = true
