@@ -51,6 +51,7 @@ function ListElements() {
  
     const handleAddElements = async (index) => {
         try {
+            
             const decodedToken = jwtDecode(token);
             const userId = decodedToken.sub;
             const nameProject = project.nombre;
