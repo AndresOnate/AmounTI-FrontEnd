@@ -23,7 +23,7 @@ const TableProjects = () => {
         try {
             const decodedToken = jwtDecode(token);
             const userId = decodedToken.sub;
-            const response = await fetch(`/api/projects/${userId}`, {
+            const response = await fetch(`http://ec2-3-81-217-64.compute-1.amazonaws.com:35000/v1/projects/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
