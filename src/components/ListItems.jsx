@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../css/ListElements.css';
 import { jwtDecode } from 'jwt-decode'
-
+ 
 function ListItems() {
     const token = localStorage.getItem('token');
     const location = useLocation();
@@ -10,27 +10,27 @@ function ListItems() {
     const [longitudinalItems, setLongitudinalItems] = useState([]);
     const [name, setNameItem] = useState("");
     const [amount, setCantidadItem] = useState("");
-
+ 
     const handleLongitudinalChange = (index, field, value) => {
         const updatedItems = [...longitudinalItems];
         updatedItems[index][field] = value;
         setLongitudinalItems(updatedItems);
     };
-
+ 
     const addLongitudinalItem = () => {
         setLongitudinalItems([
             ...longitudinalItems,
-            { cantidad: '', calibre: '', longitud: '', tipo: '' },
+            { cantidad: '', calibre: '', longitud: '' }, // Removed 'tipo' since it's not present in the inputs
         ]);
     };
-
+ 
     const removeLongitudinalItem = (index) => {
         const updatedItems = [...longitudinalItems];
         updatedItems.splice(index, 1);
         setLongitudinalItems(updatedItems);
     };
-
-    const handleAddItems = async (index) => {
+ 
+    const handleAddItems = async () => {
         try {
             const decodedToken = jwtDecode(token);
             const userId = decodedToken.sub;
@@ -43,17 +43,22 @@ function ListItems() {
                 },
                 body: JSON.stringify({ name, amount })
             });
-
+ 
             if (response.ok) {        
                 const data = await response.json();        
-                console.log(data);        
+                console.log(data);
+ 
+                // Limpiar los inputs
+                setNameItem(""); // Limpiar el input de nombre del item
+                setCantidadItem(""); // Limpiar el input de cantidad del item
+                setLongitudinalItems([]); // Limpiar los elementos longitudinales
             }
         } catch (error) {
             // Handle network or other errors
             console.error('Error fetching projects', error);
         }
      };
-
+ 
     return (
         <div className="list-elements-container">             
             <h2 className="section-title">Nombre de Item</h2>            
@@ -112,7 +117,7 @@ function ListItems() {
             <button onClick={addLongitudinalItem} className="add-button">
                 Añadir Longitudinal
             </button>
-
+ 
             <div>
             
                 <button
@@ -122,9 +127,9 @@ function ListItems() {
                     Añadir Item
                 </button>
             </div>
-
+ 
         </div>
     );
 }
-
+ 
 export default ListItems;

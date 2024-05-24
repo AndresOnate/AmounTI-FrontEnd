@@ -11,6 +11,7 @@ import ListElements from './components/ListElements'
 import ListItems from './components/ListItems'
 import ViewElements from './components/ViewElements'
 import ViewItems from './components/ViewItems'
+import ResultsAttributes from './components/ResultsAttributes'
 
 function App() {
   const [token, setToken] = useState(null);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/listitems" element={<ListItems />} />
           <Route path="/viewelements" element={<ViewElements />} />
           <Route path="/viewitems" element={<ViewItems />} />
+          <Route path="/resultsattributes" element={<ResultsAttributes />} />
         </Routes>
       </BrowserRouter>
     </AmounTIContext.Provider>

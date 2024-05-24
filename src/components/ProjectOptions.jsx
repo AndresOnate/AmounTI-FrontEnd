@@ -25,7 +25,7 @@ const ProjectOptions = ({ }) => {
     };
 
     const handlePrintResults = () => {
-        navigate('/listelements',  { state: { project } });
+        navigate('/resultsattributes',  { state: { project } });
     };
 
     const token = localStorage.getItem('token');

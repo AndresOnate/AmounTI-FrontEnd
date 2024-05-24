@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../css/ListElements.css';
 import { jwtDecode } from 'jwt-decode'
-
+ 
 function ListElements() {
     const token = localStorage.getItem('token');
     const location = useLocation();
@@ -10,45 +10,45 @@ function ListElements() {
     const [longitudinalItems, setLongitudinalItems] = useState([]);
     const [flejeItems, setFlejeItems] = useState([]);
     const [nameElement, setNameElement] = useState("");
-
+ 
     const handleLongitudinalChange = (index, field, value) => {
         const updatedItems = [...longitudinalItems];
         updatedItems[index][field] = value;
         setLongitudinalItems(updatedItems);
     };
-
+ 
     const handleFlejeChange = (index, field, value) => {
         const updatedItems = [...flejeItems];
         updatedItems[index][field] = value;
         setFlejeItems(updatedItems);
     };
-
+ 
     const addLongitudinalItem = () => {
         setLongitudinalItems([
             ...longitudinalItems,
             { cantidad: '', calibre: '', longitud: '', tipo: '' },
         ]);
     };
-
+ 
     const addFlejeItem = () => {
         setFlejeItems([
             ...flejeItems,
             { cantidad: '', calibre: '', longitud: '', ancho: '' },
         ]);
     };
-
+ 
     const removeLongitudinalItem = (index) => {
         const updatedItems = [...longitudinalItems];
         updatedItems.splice(index, 1);
         setLongitudinalItems(updatedItems);
     };
-
+ 
     const removeFlejeItem = (index) => {
         const updatedItems = [...flejeItems];
         updatedItems.splice(index, 1);
         setFlejeItems(updatedItems);
     };
-
+ 
     const handleAddElements = async (index) => {
         try {
             const decodedToken = jwtDecode(token);
@@ -62,17 +62,22 @@ function ListElements() {
                 },
                 body: nameElement
             });
-
+ 
             if (response.ok) {        
                 const data = await response.json();        
-                console.log(data);        
+                console.log(data);
+ 
+                // Limpiar los inputs
+                setNameElement(""); // Limpiar el input de nombre del elemento
+                setLongitudinalItems([]); // Limpiar los elementos longitudinales
+                setFlejeItems([]); // Limpiar los elementos de fleje
             }
         } catch (error) {
             // Handle network or other errors
             console.error('Error fetching projects', error);
         }
      };
-
+ 
     return (
         <div className="list-elements-container">             
             <h2 className="section-title">Nombre del Elemento</h2>            
@@ -134,7 +139,7 @@ function ListElements() {
             <button onClick={addLongitudinalItem} className="add-button">
                 Añadir Longitudinal
             </button>
-
+ 
             {/* Sección Fleje */}
             <h2 className="section-title">Fleje</h2>
             {flejeItems.map((item, index) => (
@@ -181,13 +186,13 @@ function ListElements() {
                     >
                         Eliminar
                     </button>
-
+ 
                 </div>
             ))}
             <button onClick={addFlejeItem} className="add-button">
                 Añadir Fleje
             </button>
-
+ 
             <div>
             
                 <button
@@ -197,9 +202,9 @@ function ListElements() {
                     Añadir Elemento
                 </button>
             </div>
-
+ 
         </div>
     );
 }
-
+ 
 export default ListElements;
