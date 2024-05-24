@@ -68,7 +68,7 @@ export default function Auth() {
 
      const handleSubmitSignUp = async (event) => {
         event.preventDefault();
-         const response = await fetch('/api/users', {
+         const response = await fetch('http://ec2-3-81-217-64.compute-1.amazonaws.com:35000/v1/users', {
            method: 'POST',
            headers: {
              'Content-Type': 'application/json'
