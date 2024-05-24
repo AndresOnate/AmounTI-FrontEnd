@@ -19,7 +19,7 @@ const ItemTable = () => {
             const decodedToken = jwtDecode(token);
             const userId = decodedToken.sub;
             const nameProject = project.nombre;
-            const response = await fetch(`http://localhost:8080/v1/projects/${userId}/${nameProject}/items`, {
+            const response = await fetch(`http://ec2-3-81-217-64.compute-1.amazonaws.com:35000/v1/projects/${userId}/${nameProject}/items`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
