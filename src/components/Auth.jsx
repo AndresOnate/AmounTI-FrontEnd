@@ -44,7 +44,7 @@ export default function Auth() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-         const response = await fetch('https://ec2-3-81-217-64.compute-1.amazonaws.com:35000/v1/auth', {
+         const response = await fetch('http://ec2-3-81-217-64.compute-1.amazonaws.com:35000/v1/auth', {
            method: 'POST',
            headers: {
              'Content-Type': 'application/json'
